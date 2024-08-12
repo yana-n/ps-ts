@@ -7,7 +7,7 @@ async function getUsers(url: string): Promise<IUser[] | null> {
     try {
         const res: AxiosResponse = await axios.get(`${url}/users`)
 
-        return res?.data?.users
+        return res?.data?.users ?? null
     } catch (e) {
         if (e instanceof Error) {
             throw new Error(e.message)

@@ -1,19 +1,19 @@
-enum  Gender {
+enum  EGender {
     male = 'male',
     female = 'female',
 }
 
-type EyeColors = 'green' | 'blue' | 'brown'
-type HairTypes = 'curly' | 'straight'
-type HairColors = 'brown' | 'blonde' | 'black'
-type CountriesNames = 'russia' | 'usa' | 'indonesia' // etc
-type CurrenciesTypes = 'idr' | 'usd' | 'rub' // etc
-type UserRoles = 'admin' | 'editor' // etc
-type CryptoCoins = 'bitcoin' | 'usdt' | 'dodge' // etc
+type TEyeColors = 'green' | 'blue' | 'brown'
+type THairTypes = 'curly' | 'straight'
+type THairColors = 'brown' | 'blonde' | 'black'
+type TCountriesNames = 'russia' | 'usa' | 'indonesia' // etc
+type TCurrenciesTypes = 'idr' | 'usd' | 'rub' // etc
+type TUserRoles = 'admin' | 'editor' // etc
+type TCryptoCoins = 'bitcoin' | 'usdt' | 'dodge' // etc
 
 interface IHair {
-    color: HairColors
-    type: HairTypes
+    color: THairColors
+    type: THairTypes
 }
 
 interface IAddress {
@@ -23,7 +23,7 @@ interface IAddress {
     stateCode: string
     postalCode: string
     coordinates: ICoordinates
-    country: CountriesNames
+    country: TCountriesNames
 }
 
 interface ICoordinates {
@@ -35,7 +35,7 @@ interface IBank {
     cardExpire: string
     cardNumber: string
     cardType: string
-    currency: CurrenciesTypes
+    currency: TCurrenciesTypes
     iban: string
 }
 
@@ -47,7 +47,7 @@ interface ICompany {
 }
 
 interface ICrypto {
-    coin: CryptoCoins
+    coin: TCryptoCoins
     wallet: string
     network: string
 }
@@ -58,7 +58,7 @@ export interface IUser {
     lastName: string
     maidenName: string
     age: number
-    gender: Gender
+    gender: EGender
     email: string
     phone: string
     username: string
@@ -68,7 +68,7 @@ export interface IUser {
     bloodGroup: string
     height: number
     weight: number
-    eyeColor: EyeColors
+    eyeColor: TEyeColors
     hair: IHair
     ip: string
     address: IAddress
@@ -80,5 +80,5 @@ export interface IUser {
     ssn: string
     userAgent: string
     crypto: ICrypto
-    role: UserRoles
+    role: TUserRoles
 }

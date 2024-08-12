@@ -1,18 +1,18 @@
-import axios from 'axios'
+import axios, {AxiosResponse} from 'axios'
 import { IUser } from './types.ts'
 
 const BASE_URL = 'https://dummyjson.com'
 
-async function getUsers(url: string): Promise<IUser[] | undefined> {
+async function getUsers(url: string): Promise<IUser[] | null> {
     try {
-        const { data: { users } } = await axios.get(`${url}/users`)
+        const res: AxiosResponse = await axios.get(`${url}/users`)
 
-        return users
+        return res?.data?.users
     } catch (e) {
         if (e instanceof Error) {
             throw new Error(e.message)
         } else {
-            console.error(e)
+            return null
         }
     }
 }
